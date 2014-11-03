@@ -24,22 +24,12 @@
 				'deps/glfw.gyp:libglfw',
 			],
 			'sources': [
-				'src/dreiecke.cc',
-				'src/dreiecke.fs',
-				'src/dreiecke.vs',
-				'src/load_shaders.cc',
-				'src/load_shaders.h',
+				'src/gl_service.cc',
+				'src/gl_service.h',
+				'src/list.h',
 				'src/main.cc',
-				'src/main.h',
-			],
-			'copies': [
-				{
-					'destination': '<(PRODUCT_DIR)',
-					'files': [
-						'src/dreiecke.fs',
-						'src/dreiecke.vs',
-					],
-				}
+				'src/minecraft.cc',
+				'src/p1a1.cc',
 			],
 			'conditions': [
 				['OS=="mac"', {
