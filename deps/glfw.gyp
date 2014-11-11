@@ -7,32 +7,37 @@
 				'glfw/src',
 			],
 			'sources': [
+				'glfw/src/clipboard.c',
 				'glfw/src/context.c',
+				'glfw/src/gamma.c',
 				'glfw/src/init.c',
 				'glfw/src/input.c',
+				'glfw/src/joystick.c',
 				'glfw/src/monitor.c',
+				'glfw/src/time.c',
 				'glfw/src/window.c',
 			],
 			'defines': [
 				'_GLFW_USE_OPENGL=1',
 				'GLFW_VERSION_MAJOR=3',
-				'GLFW_VERSION_MINOR=1',
-				'GLFW_VERSION_PATCH=0',
+				'GLFW_VERSION_MINOR=0',
+				'GLFW_VERSION_PATCH=4',
 				'GLFW_VERSION_EXTRA=',
-				'GLFW_VERSION=3.1',
-				'GLFW_VERSION_FULL=3.1.0',
+				'GLFW_VERSION=3.0',
+				'GLFW_VERSION_FULL=3.0.4',
 			],
 			'conditions': [
 				['OS=="linux"', {
 					'sources': [
 						'glfw/src/glx_context.c',
-						'glfw/src/linux_joystick.c',
-						'glfw/src/posix_time.c',
-						'glfw/src/posix_tls.c',
+						'glfw/src/x11_clipboard.c',
+						'glfw/src/x11_gamma.c',
 						'glfw/src/x11_init.c',
+						'glfw/src/x11_joystick.c',
 						'glfw/src/x11_monitor.c',
+						'glfw/src/x11_time.c',
+						'glfw/src/x11_unicode.c',
 						'glfw/src/x11_window.c',
-						'glfw/src/xkb_unicode.c',
 					],
 					'defines': [
 						'_GLFW_GLX=1',
@@ -54,13 +59,15 @@
 				}],
 				['OS=="mac"', {
 					'sources': [
+						'glfw/src/cocoa_clipboard.m',
+						'glfw/src/cocoa_gamma.c',
 						'glfw/src/cocoa_init.m',
+						'glfw/src/cocoa_joystick.m',
 						'glfw/src/cocoa_monitor.m',
+						'glfw/src/cocoa_time.c',
 						'glfw/src/cocoa_window.m',
-						'glfw/src/iokit_joystick.m',
-						'glfw/src/mach_time.c',
 						'glfw/src/nsgl_context.m',
-						'glfw/src/posix_tls.c',
+
 					],
 					'defines': [
 						'_GLFW_COCOA=1',
@@ -81,13 +88,14 @@
 				}],
 				['OS=="win"', {
 					'sources': [
+						'glfw/src/wgl_context.c',
+						'glfw/src/win32_clipboard.c',
+						'glfw/src/win32_gamma.c',
 						'glfw/src/win32_init.c',
+						'glfw/src/win32_joystick.c',
 						'glfw/src/win32_monitor.c',
 						'glfw/src/win32_time.c',
-						'glfw/src/win32_tls.c',
 						'glfw/src/win32_window.c',
-						'glfw/src/winmm_joystick.c',
-						'glfw/src/wlx_context.c',
 					],
 					'defines': [
 						'_GLFW_USE_DWM_SWAP_INTERVAL=1',
