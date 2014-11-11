@@ -1,7 +1,7 @@
 #include "impl.h"
 
 
-const char vs[] = R"(
+static const char vs[] = R"(
 #version 330 core
 
 in vec4 vPosition;
@@ -12,7 +12,7 @@ void main() {
 )";
 
 
-const char fs[] = R"(
+static const char fs[] = R"(
 #version 330 core
 
 out vec4 fColor;
@@ -36,7 +36,7 @@ const GLuint NumVertices = 6;
 
 
 IMPL(p1a1) {
-	gl_service service;
+	gl_service service("p1a1");
 
 	glGenVertexArrays(NumVAOs, VAOs);
 	glBindVertexArray(VAOs[Triangles]);
@@ -51,7 +51,7 @@ IMPL(p1a1) {
 	glVertexAttribPointer(vPosition, 2, GL_FLOAT, GL_FALSE, 0, nullptr);
 	glEnableVertexAttribArray(vPosition);
 
-	service.on_display([]() {
+	service.on_display([](double delta) {
 		glClear(GL_COLOR_BUFFER_BIT);
 		glBindVertexArray(VAOs[Triangles]);
 		glDrawArrays(GL_TRIANGLES, 0, NumVertices);
