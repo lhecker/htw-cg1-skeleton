@@ -23,9 +23,13 @@
 				'deps/glew.gyp:libglew',
 				'deps/glfw.gyp:libglfw',
 			],
+			'include_dirs': [
+				'deps/glm',
+			],
 			'sources': [
 				'src/gl_service.cc',
 				'src/gl_service.h',
+				'src/impl.h',
 				'src/list.h',
 				'src/main.cc',
 				'src/minecraft.cc',
